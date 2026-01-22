@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About Flexpath Tax | Chartered Accountant & Tax Adviser</title>
+  <meta name="description" content="Learn more about Flexpath Tax. Chartered Accountant, Chartered Tax Adviser, and Masters-qualified accounting professional." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header (loaded from partial) -->
+  <div id="site-header"></div>
+
+  <!-- Page Heading -->
+  <section class="bg-blue-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 text-center">
+      <h1 class="text-3xl font-bold mb-2">About Flexpath Tax</h1>
+      <p class="text-lg">
+        Professional tax expertise you can trust.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+
+      <!-- Professional Summary -->
+      <div>
+        <h2 class="text-2xl font-semibold mb-4">
+          Professional Background
+        </h2>
+        <p class="mb-4">
+          Flexpath Tax provides specialist tax accounting and advisory services
+          for individuals, freelancers, and small businesses.
+        </p>
+        <p class="mb-4">
+          With a strong academic foundation and extensive experience in both
+          public practice and fintech environments, Flexpath Tax delivers
+          clear, practical, and compliant tax solutions.
+        </p>
+        <p>
+          Every engagement is approached with professionalism, attention to
+          detail, and a focus on helping clients make confident financial
+          decisions.
+        </p>
+      </div>
+
+      <!-- Qualifications -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-6">
+          Qualifications & Credentials
+        </h2>
+        <ul class="space-y-4">
+          <li>
+            <strong>Chartered Accountant (CA)</strong><br />
+            Fully qualified with extensive experience in tax and accounting compliance.
+          </li>
+          <li>
+            <strong>Chartered Tax Adviser (CTA)</strong><br />
+            Specialist qualification in taxation and tax advisory services.
+          </li>
+          <li>
+            <strong>Masters in Accounting</strong><br />
+            Advanced academic training supporting complex tax and financial advisory work.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-semibold mb-6">
+        My Approach
+      </h2>
+      <p class="max-w-3xl mx-auto mb-4">
+        Tax advice should be clear, practical, and tailored to each client’s
+        circumstances — not overly complex or confusing.
+      </p>
+      <p class="max-w-3xl mx-auto">
+        Flexpath Tax focuses on building long-term client relationships based
+        on trust, transparency, and consistently high standards of work.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer (loaded from partial) -->
+  <div id="site-footer"></div>
+
+  <!-- Load header & footer partials -->
+  <script>
+    async function loadPartial(id, file) {
+      const response = await fetch(file);
+      document.getElementById(id).innerHTML = await response.text();
+    }
+    loadPartial("site-header", "partials/header.html");
+    loadPartial("site-footer", "partials/footer.html");
+  </script>
+
+</body>
+</html>

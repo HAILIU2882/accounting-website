@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Flexpath Tax | Professional Tax Accounting Services</title>
+  <meta name="description" content="Professional tax accounting services for individuals and small businesses. Chartered Accountant and Chartered Tax Adviser." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header (loaded from partial) -->
+  <div id="site-header"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl font-bold mb-4">
+        Expert Tax Accounting Services
+      </h1>
+      <p class="text-lg mb-6 max-w-3xl mx-auto">
+        Clear, reliable tax advice for individuals, freelancers, and small businesses.
+        Helping you stay compliant and confident.
+      </p>
+      <a
+        href="contact.html"
+        class="inline-block bg-white text-blue-600 px-8 py-3 rounded font-semibold hover:bg-gray-100"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <h2 class="text-2xl font-semibold mb-4">
+          Trusted Tax Expertise
+        </h2>
+        <p class="mb-4">
+          Flexpath Tax provides professional tax accounting and advisory services
+          backed by strong technical expertise and real-world experience.
+        </p>
+        <p>
+          The focus is on practical advice, accuracy, and proactive planning —
+          so you can make informed financial decisions with confidence.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded shadow">
+        <h3 class="text-xl font-semibold mb-4">
+          Why Choose Flexpath Tax
+        </h3>
+        <ul class="space-y-2">
+          <li>✔ Chartered Accountant (CA)</li>
+          <li>✔ Chartered Tax Adviser (CTA)</li>
+          <li>✔ Masters in Accounting</li>
+          <li>✔ Individual & Small Business Focus</li>
+          <li>✔ Technology-Driven, Practical Solutions</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-center mb-12">
+        Services
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-semibold text-lg mb-2">Personal Tax</h3>
+          <p>
+            Individual tax returns including rental properties, capital gains,
+            and overseas income.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-semibold text-lg mb-2">Business Tax</h3>
+          <p>
+            BAS, GST, PAYG, and compliance support for freelancers and small businesses.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-semibold text-lg mb-2">Tax Planning</h3>
+          <p>
+            Forward-looking advice to optimise your tax position and manage risk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-semibold mb-4">
+        Looking for Reliable Tax Advice?
+      </h2>
+      <p class="mb-6">
+        Contact Flexpath Tax to discuss your situation and receive clear, practical guidance.
+      </p>
+      <a
+        href="contact.html"
+        class="inline-block bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700"
+      >
+        Contact Flexpath Tax
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer (loaded from partial) -->
+  <div id="site-footer"></div>
+
+  <!-- Load header & footer partials -->
+  <script>
+    async function loadPartial(id, file) {
+      const response = await fetch(file);
+      document.getElementById(id).innerHTML = await response.text();
+    }
+    loadPartial("site-header", "partials/header.html");
+    loadPartial("site-footer", "partials/footer.html");
+  </script>
+
+</body>
+</html>

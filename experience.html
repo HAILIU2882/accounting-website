@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Experience | Flexpath Tax</title>
+  <meta name="description" content="Professional experience across tax, accounting, SMSF and fintech-driven solutions supporting individuals and small businesses." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header (loaded from partial) -->
+  <div id="site-header"></div>
+
+  <!-- Page Heading -->
+  <section class="bg-blue-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 text-center">
+      <h1 class="text-3xl font-bold mb-2">Professional Experience</h1>
+      <p class="text-lg">
+        Deep technical expertise combined with modern, technology-driven practice.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Sections -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 space-y-10">
+
+      <!-- Fintech / Lead Role -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-3">
+          Senior Lead Accountant & Tax Expert – Fintech
+        </h2>
+        <p class="mb-3">
+          Currently working in a senior leadership role within a fintech
+          environment, supporting freelancers and small businesses through
+          automated tax and bookkeeping solutions.
+        </p>
+        <p>
+          This role sits at the intersection of tax, technology, and product
+          design — translating complex tax legislation into clear, practical,
+          AI-powered tools that improve compliance and usability.
+        </p>
+      </div>
+
+      <!-- Product & AI -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-3">
+          Tax Product Localisation & Automation
+        </h2>
+        <p>
+          Extensive experience adapting international tax products for the
+          Australian market, including automated bookkeeping, BAS lodgements,
+          invoicing workflows, and ATO integrations.
+        </p>
+      </div>
+
+      <!-- Public Practice -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-3">
+          Senior Accountant – Public Practice
+        </h2>
+        <p>
+          Over a decade of experience in professional accounting firms, providing
+          tax compliance and advisory services to individuals, companies, trusts,
+          and self-managed superannuation funds.
+        </p>
+      </div>
+
+      <!-- SMSF -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-3">
+          SMSF Specialist Experience
+        </h2>
+        <p>
+          Significant experience in SMSF accounting and tax, including compliance,
+          pension commencement and minimum payments, contribution tracking,
+          investment transactions, audit preparation, and ATO liaison.
+        </p>
+      </div>
+
+      <!-- Client Education -->
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-3">
+          Client Advisory & Education
+        </h2>
+        <p>
+          Regularly provides client onboarding, tax education sessions, and clear
+          written guidance to help clients understand their obligations and make
+          informed financial decisions with confidence.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-semibold mb-4">
+        Work With an Experienced Tax Professional
+      </h2>
+      <p class="mb-6">
+        Combine deep technical expertise with practical, modern tax solutions.
+      </p>
+      <a
+        href="contact.html"
+        class="inline-block bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700"
+      >
+        Contact Flexpath Tax
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer (loaded from partial) -->
+  <div id="site-footer"></div>
+
+  <!-- Load header & footer partials -->
+  <script>
+    async function loadPartial(id, file) {
+      const response = await fetch(file);
+      document.getElementById(id).innerHTML = await response.text();
+    }
+    loadPartial("site-header", "partials/header.html");
+    loadPartial("site-footer", "partials/footer.html");
+  </script>
+
+</body>
+</html>
