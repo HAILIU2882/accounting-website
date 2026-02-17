@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexpath Tax | 专业税务与会计服务</title>
+  <meta name="description" content="为个人与中小企业提供专业税务、会计与咨询服务。" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div id="site-header"></div>
+
+  <section class="bg-blue-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl font-bold mb-4">专业税务会计服务</h1>
+      <p class="text-lg mb-6 max-w-3xl mx-auto">为个人、自由职业者和中小企业提供清晰、可靠的税务建议与申报支持。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="contact.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded font-semibold hover:bg-gray-100">立即咨询</a>
+        <a href="blog.html" class="inline-block border border-white text-white px-8 py-3 rounded font-semibold hover:bg-blue-700">阅读博客</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-2xl font-semibold mb-4">值得信赖的税务专业能力</h2>
+        <p class="mb-4">Flexpath Tax 提供专业税务会计与咨询服务，注重实操性、准确性与合规性。</p>
+        <p>我们以清晰沟通和长期视角，帮助你做出更有信心的财务决策。</p>
+      </div>
+      <div class="bg-white p-8 rounded shadow">
+        <h3 class="text-xl font-semibold mb-4">为什么选择 Flexpath Tax</h3>
+        <ul class="space-y-2">
+          <li>✔ 澳洲注册会计师（CA）</li>
+          <li>✔ 特许税务顾问（CTA）</li>
+          <li>✔ 会计硕士背景</li>
+          <li>✔ 专注个人与中小企业</li>
+          <li>✔ 技术驱动、方案务实</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-center mb-12">核心服务</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded shadow"><h3 class="font-semibold text-lg mb-2">个人报税</h3><p>涵盖工资、投资房、资本利得及海外收入等。</p></div>
+        <div class="bg-white p-6 rounded shadow"><h3 class="font-semibold text-lg mb-2">企业税务</h3><p>提供 BAS/GST/PAYG 等中小企业合规支持。</p></div>
+        <div class="bg-white p-6 rounded shadow"><h3 class="font-semibold text-lg mb-2">税务规划</h3><p>以前瞻性建议优化税务结构并控制风险。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script>
+    async function loadPartial(id, file) {
+      const response = await fetch(file);
+      document.getElementById(id).innerHTML = await response.text();
+    }
+    loadPartial("site-header", "../partials/header-zh.html");
+    loadPartial("site-footer", "../partials/footer-zh.html");
+  </script>
+</body>
+</html>

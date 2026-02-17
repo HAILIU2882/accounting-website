@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>联系我们 | Flexpath Tax</title>
+  <meta name="description" content="联系 Flexpath Tax，获取专业税务与会计支持。" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div id="site-header"></div>
+  <section class="bg-blue-600 text-white"><div class="max-w-6xl mx-auto px-4 py-12 text-center"><h1 class="text-3xl font-bold mb-2">联系我们</h1><p class="text-lg">欢迎咨询你的税务与会计需求。</p></div></section>
+
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white p-8 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-6">发送咨询</h2>
+        <form name="enquiry-zh" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+          <input type="hidden" name="form-name" value="enquiry-zh" />
+          <p class="hidden"><label>请勿填写此字段：<input name="bot-field" /></label></p>
+          <div><label class="block mb-1 font-medium">姓名</label><input type="text" name="name" required class="w-full p-3 border rounded" /></div>
+          <div><label class="block mb-1 font-medium">邮箱</label><input type="email" name="email" required class="w-full p-3 border rounded" /></div>
+          <div><label class="block mb-1 font-medium">电话（可选）</label><input type="text" name="phone" class="w-full p-3 border rounded" /></div>
+          <div><label class="block mb-1 font-medium">留言内容</label><textarea name="message" required class="w-full p-3 border rounded h-32" placeholder="请简要说明你的需求..."></textarea></div>
+          <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700">提交咨询</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script>
+    async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
+    loadPartial("site-header", "../partials/header-zh.html");
+    loadPartial("site-footer", "../partials/footer-zh.html");
+  </script>
+</body>
+</html>
