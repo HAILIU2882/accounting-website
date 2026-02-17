@@ -8,13 +8,44 @@
   <link rel="icon" type="image/png" href="../assets/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-blue-50/40 text-slate-800">
   <div id="site-header"></div>
-  <section class="bg-blue-600 text-white"><div class="max-w-6xl mx-auto px-4 py-12 text-center"><h1 class="text-3xl font-bold mb-2">关于 Flexpath Tax</h1><p class="text-lg">值得信赖的税务专业服务。</p></div></section>
-  <section class="py-16"><div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
-    <div><h2 class="text-2xl font-semibold mb-4">专业背景</h2><p class="mb-4">我们为个人、自由职业者和中小企业提供税务会计与咨询服务。</p><p class="mb-4">结合事务所与金融科技领域经验，提供清晰、实用且合规的解决方案。</p><p>每一项服务都强调专业、细致与可执行性。</p></div>
-    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-6">资质与认证</h2><ul class="space-y-4"><li><strong>注册会计师（CA）</strong><br/>具备丰富税务与会计实务经验。</li><li><strong>特许税务顾问（CTA）</strong><br/>专注税务合规与顾问服务。</li><li><strong>会计硕士</strong><br/>支持复杂税务与财务问题分析。</li></ul></div>
-  </div></section>
+
+  <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-14 text-center">
+      <h1 class="text-4xl font-bold mb-3">关于 Flexpath Tax</h1>
+      <p class="text-blue-100 text-lg">专业、清晰、值得信赖的税务服务。</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div class="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-800">专业背景</h2>
+        <p class="mb-4">我们为个人、自由职业者与中小企业提供税务会计和咨询服务。</p>
+        <p class="mb-4">结合会计师事务所与金融科技实践经验，提供清晰、务实且合规的解决方案。</p>
+        <p>每一项服务都强调专业性、准确性与长期价值。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 border border-blue-100 shadow-sm">
+        <h2 class="text-2xl font-semibold mb-6 text-blue-800">资质与认证</h2>
+        <ul class="space-y-4">
+          <li><strong>注册会计师（CA）</strong><br/>具备丰富税务与会计合规实务经验。</li>
+          <li><strong>特许税务顾问（CTA）</strong><br/>专注税务咨询与合规管理。</li>
+          <li><strong>会计硕士</strong><br/>支持复杂税务与财务问题分析与决策。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white border-y border-blue-100">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-6 text-blue-800">我们的服务理念</h2>
+      <p class="max-w-3xl mx-auto mb-4 text-slate-600">税务建议应当清晰、可执行，并贴合每位客户的实际情况，而不是复杂难懂。</p>
+      <p class="max-w-3xl mx-auto text-slate-600">我们重视长期合作关系，建立在信任、透明和稳定高质量交付之上。</p>
+    </div>
+  </section>
+
   <div id="site-footer"></div>
   <script>
     async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
