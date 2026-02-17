@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服务条款 | Flexpath Tax</title>
+  <meta name="description" content="Flexpath Tax 网站服务条款。" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50/40 text-slate-800">
+  <div id="site-header"></div>
+
+  <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
+    <div class="max-w-5xl mx-auto px-4 py-14 text-center">
+      <h1 class="text-4xl font-bold mb-3">服务条款</h1>
+      <p class="text-blue-100">使用本网站前，请先阅读以下条款。</p>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-4 py-14">
+    <div class="bg-white border border-blue-100 rounded-2xl p-8 shadow-sm space-y-6">
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">1. 网站信息</h2>
+        <p>本网站内容仅作一般信息参考，不构成个性化税务或财务建议。</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">2. 专业建议</h2>
+        <p>税务建议应结合你的个人情况。请直接联系 Flexpath Tax 获取定制建议。</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">3. 责任限制</h2>
+        <p>我们尽力确保信息准确，但对仅依赖网站内容产生的损失不承担责任。</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">4. 条款更新</h2>
+        <p>我们可随时更新条款。继续使用本网站即视为接受更新后的条款。</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">5. 联系方式</h2>
+        <p>如对条款有疑问，请通过 Contact 页面提交咨询。</p>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
+    loadPartial("site-header", "../partials/header-zh.html");
+    loadPartial("site-footer", "../partials/footer-zh.html");
+  </script>
+</body>
+</html>
