@@ -39,9 +39,32 @@
 
   <div id="site-footer"></div>
   <script>
-    async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
-    loadPartial("site-header", "partials/header.html");
-    loadPartial("site-footer", "partials/footer.html");
+    async function loadPartial(id, file) {
+      const response = await fetch(file);
+      document.getElementById(id).innerHTML = await response.text();
+    }
+
+    function setLanguageLinks() {
+      const path = window.location.pathname;
+      const file = path.split('/').pop() || 'index.html';
+      const isZh = path.includes('/zh/');
+      const target = isZh ? `../${file}` : `zh/${file}`;
+      document.querySelectorAll('.lang-switch').forEach(a => {
+        a.setAttribute('href', target);
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = target;
+        });
+      });
+    }
+
+    async function initLayout() {
+      await loadPartial("site-header", "partials/header.html");
+      await loadPartial("site-footer", "partials/footer.html");
+      setLanguageLinks();
+    }
+
+    initLayout();
   </script>
 </body>
 </html>
