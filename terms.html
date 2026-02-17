@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions | Flexpath Tax</title>
+  <meta name="description" content="Terms and Conditions for Flexpath Tax website usage." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50/40 text-slate-800">
+  <div id="site-header"></div>
+
+  <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
+    <div class="max-w-5xl mx-auto px-4 py-14 text-center">
+      <h1 class="text-4xl font-bold mb-3">Terms and Conditions</h1>
+      <p class="text-blue-100">Please review these terms before using this website.</p>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-4 py-14">
+    <div class="bg-white border border-blue-100 rounded-2xl p-8 shadow-sm space-y-6">
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">1. Website Information</h2>
+        <p>This website provides general information only and does not constitute personal tax or financial advice.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">2. Professional Advice</h2>
+        <p>Advice should be based on your personal circumstances. Please contact Flexpath Tax directly for tailored guidance.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">3. Limitation of Liability</h2>
+        <p>While we aim for accuracy, Flexpath Tax is not liable for losses arising from reliance on website content alone.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">4. Changes</h2>
+        <p>We may update these terms at any time. Continued use of the website indicates acceptance of the updated terms.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-blue-800 mb-2">5. Contact</h2>
+        <p>For questions about these terms, please use our contact form on the Contact page.</p>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>
+    async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
+    loadPartial("site-header", "partials/header.html");
+    loadPartial("site-footer", "partials/footer.html");
+  </script>
+</body>
+</html>
