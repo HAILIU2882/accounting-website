@@ -1,26 +1,44 @@
 <header class="bg-white shadow">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+  <div class="max-w-6xl mx-auto px-4 py-3 md:py-4">
+    <div class="flex justify-between items-center">
 
-    <!-- Logo + Brand -->
-    <div class="flex items-center space-x-3">
-      <img
-        src="assets/logo.png"
-        alt="Flexpath Tax logo"
-        class="h-8 w-auto"
-      />
-      <span class="text-xl font-semibold text-blue-600">
-        Flexpath Tax
-      </span>
+      <!-- Logo + Brand -->
+      <a href="index.html" class="flex items-center space-x-2 md:space-x-3 min-w-0">
+        <img
+          src="assets/logo.png"
+          alt="Flexpath Tax logo"
+          class="h-7 md:h-9 w-auto shrink-0"
+        />
+        <span class="text-base md:text-xl font-semibold text-blue-600 truncate">
+          Flexpath Tax
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 text-sm lg:text-base">
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+        <a href="about.html" class="hover:text-blue-600">About</a>
+        <a href="services.html" class="hover:text-blue-600">Services</a>
+        <a href="experience.html" class="hover:text-blue-600">Experience</a>
+        <a href="blog.html" class="hover:text-blue-600">Blog</a>
+        <a href="contact.html" class="hover:text-blue-600">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <details class="md:hidden relative">
+        <summary class="list-none cursor-pointer px-3 py-2 rounded border border-gray-300 text-sm text-gray-700">
+          Menu
+        </summary>
+        <nav class="absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded shadow-lg p-3 space-y-2 z-50">
+          <a href="index.html" class="block hover:text-blue-600">Home</a>
+          <a href="about.html" class="block hover:text-blue-600">About</a>
+          <a href="services.html" class="block hover:text-blue-600">Services</a>
+          <a href="experience.html" class="block hover:text-blue-600">Experience</a>
+          <a href="blog.html" class="block hover:text-blue-600">Blog</a>
+          <a href="contact.html" class="block hover:text-blue-600">Contact</a>
+        </nav>
+      </details>
+
     </div>
-
-    <!-- Navigation -->
-    <nav class="space-x-6">
-      <a href="index.html" class="hover:text-blue-600">Home</a>
-      <a href="about.html" class="hover:text-blue-600">About</a>
-      <a href="services.html" class="hover:text-blue-600">Services</a>
-      <a href="experience.html" class="hover:text-blue-600">Experience</a>
-      <a href="contact.html" class="hover:text-blue-600">Contact</a>
-    </nav>
-
   </div>
 </header>
