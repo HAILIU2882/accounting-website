@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服务 | Flexpath Tax</title>
+  <meta name="description" content="为个人、自由职业者和中小企业提供税务、会计与咨询服务。" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div id="site-header"></div>
+  <section class="bg-blue-600 text-white"><div class="max-w-6xl mx-auto px-4 py-12 text-center"><h1 class="text-3xl font-bold mb-2">服务项目</h1><p class="text-lg">按你的需求提供务实、合规的税务支持。</p></div></section>
+  <section class="py-16"><div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">个人报税</h2><p>个人报税申报与复核，包括投资房、资本利得、海外收入等场景。</p></div>
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">企业税务与合规</h2><p>为个体经营者与公司提供 BAS、IAS、GST、PAYG 及申报服务。</p></div>
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">税务规划与咨询</h2><p>通过前瞻性建议优化结构、管理现金流并降低税务风险。</p></div>
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">SMSF 税务服务</h2><p>提供 SMSF 报税、合规、审计协同与养老金相关支持。</p></div>
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">ATO 沟通支持</h2><p>协助处理 ATO 来函、注册、变更、审核及复杂合规事项。</p></div>
+    <div class="bg-white p-8 rounded shadow"><h2 class="text-2xl font-semibold mb-3">数字化会计支持</h2><p>结合现代会计工具和自动化流程，提升效率与准确性。</p></div>
+  </div></section>
+  <div id="site-footer"></div>
+  <script>
+    async function loadPartial(id, file) { const response = await fetch(file); document.getElementById(id).innerHTML = await response.text(); }
+    loadPartial("site-header", "../partials/header-zh.html");
+    loadPartial("site-footer", "../partials/footer-zh.html");
+  </script>
+</body>
+</html>
