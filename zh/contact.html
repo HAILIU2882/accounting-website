@@ -94,7 +94,7 @@
           <p class="text-xs text-slate-600">Indicative only (not a formal quote).</p>
         </div>
 
-        <h2 class="text-2xl font-semibold mb-6 text-blue-800">发送咨询</h2>
+        <h2 id="send-enquiry" class="text-2xl font-semibold mb-6 text-blue-800">发送咨询</h2>
         <form name="enquiry-zh" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
           <input type="hidden" name="form-name" value="enquiry-zh" />
           <p class="hidden"><label>请勿填写此字段：<input name="bot-field" /></label></p>
@@ -206,7 +206,7 @@
       el.addEventListener(evt, calcQuote);
     });
 
-    document.getElementById('qUse')?.addEventListener('click', () => {
+    function insertQuoteIntoMessage() {
       const msg = document.getElementById('messageField');
       const { text } = calcQuote();
       const entityText = document.getElementById('qEntity')?.selectedOptions?.[0]?.text || '';
@@ -224,9 +224,39 @@
         msg.value = `${cleaned}${cleaned ? '\n\n' : ''}${line}`;
       }
       msg?.focus();
-    });
+    }
+
+    document.getElementById('qUse')?.addEventListener('click', insertQuoteIntoMessage);
+
+    function applyQuotePrefillFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      if (!params.get('prefillQuote')) return;
+
+      const setVal = (id, v) => {
+        const el = document.getElementById(id);
+        if (!el || v == null || v === '') return;
+        el.value = v;
+      };
+      const setChecked = (id, v) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.checked = String(v) === '1' || String(v).toLowerCase() === 'true';
+      };
+
+      setVal('qEntity', params.get('entity'));
+      setVal('qComplexity', params.get('complexity'));
+      setVal('qTx', params.get('tx'));
+      setVal('qRentalCount', params.get('rentalCount'));
+      setVal('qPropertySaleCount', params.get('propertySaleCount'));
+      setChecked('qGstRegistered', params.get('gst'));
+      setChecked('qFinancialStatements', params.get('fs'));
+
+      calcQuote();
+      insertQuoteIntoMessage();
+    }
 
     calcQuote();
+    applyQuotePrefillFromUrl();
   </script>
 </body>
 </html>

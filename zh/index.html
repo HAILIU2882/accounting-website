@@ -13,33 +13,87 @@
 
   <!-- Hero -->
   <section class="border-b border-black/10 bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <p class="uppercase tracking-[0.2em] text-xs text-gray-500 mb-6">Flexpath Tax</p>
-        <h1 class="text-4xl md:text-6xl font-semibold leading-tight max-w-4xl mb-8">
-          为个人与成长型企业提供高质量税务顾问服务。
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mb-10 leading-relaxed">
-          以扎实专业能力与清晰沟通方式，帮助你稳住合规、优化税务决策，并减少不确定性。
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="contact.html" class="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">预约免费30分钟咨询</a>
-          <a href="services.html" class="px-8 py-3 border border-gray-300 rounded-md hover:bg-gray-100 transition">查看服务</a>
-        </div>
-      </div>
-
-      <div class="relative">
-        <div class="absolute -inset-2 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-3xl blur-xl opacity-70"></div>
-        <div class="relative bg-white rounded-3xl border border-black/10 p-3 shadow-xl">
-          <img src="../assets/images/livia_pic.jpg" alt="Livia Lin, CA CTA" class="w-full h-[520px] object-cover object-top rounded-2xl" />
-          <div class="absolute left-6 bottom-6 bg-white/90 backdrop-blur px-4 py-3 rounded-xl border border-black/10">
-            <p class="text-sm text-gray-500">税务咨询总监</p>
-            <p class="font-semibold text-gray-900">Livia Lin, CA CTA</p>
-          </div>
-        </div>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <p class="uppercase tracking-[0.2em] text-xs text-gray-500 mb-6">Flexpath Tax</p>
+      <h1 class="text-4xl md:text-6xl font-semibold leading-tight max-w-4xl mb-8">
+        为个人与成长型企业提供高质量税务顾问服务。
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mb-10 leading-relaxed">
+        以扎实专业能力与清晰沟通方式，帮助你稳住合规、优化税务决策，并减少不确定性。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="contact.html" class="px-8 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">预约免费30分钟咨询</a>
+        <a href="services.html" class="px-8 py-3 border border-gray-300 rounded-md hover:bg-gray-100 transition">查看服务</a>
       </div>
     </div>
   </section>
+
+  <!-- Quick Quote -->
+  <section class="py-16 bg-white border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-8">
+        <p class="uppercase tracking-[0.2em] text-xs text-gray-500 mb-3">快速报价</p>
+        <h2 class="text-3xl md:text-4xl font-semibold">1 分钟快速预估税务申报范围</h2>
+      </div>
+      <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 space-y-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div>
+            <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">主体类型</label>
+            <select id="homeQEntity" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white">
+              <option value="individual">个人</option>
+              <option value="partnership">合伙企业</option>
+              <option value="trust">信托</option>
+              <option value="company">公司</option>
+              <option value="smsf">SMSF</option>
+            </select>
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">复杂程度</label>
+            <select id="homeQComplexity" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white">
+              <option value="standard">标准</option>
+              <option value="complex">复杂</option>
+            </select>
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">年交易笔数</label>
+            <select id="homeQTx" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white">
+              <option value="under500">少于 500 笔</option>
+              <option value="500_1500">500 - 1,500 笔</option>
+              <option value="1500_5000">1,500 - 5,000 笔</option>
+              <option value="5000_10000">5,000 - 10,000 笔</option>
+              <option value="over10000">10,000 笔以上</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2 lg:col-span-3 space-y-3">
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <input id="homeQGstRegistered" type="checkbox" class="w-[18px] h-[18px] rounded border-blue-200 cursor-pointer" />
+              <label for="homeQGstRegistered" class="cursor-pointer">GST 已注册</label>
+            </div>
+            <div id="homeQFinancialStatementsWrap">
+              <div class="flex items-center gap-2 text-sm text-slate-700">
+                <input id="homeQFinancialStatements" type="checkbox" class="w-[18px] h-[18px] rounded border-blue-200 cursor-pointer" />
+                <label for="homeQFinancialStatements" class="cursor-pointer">需要财务报表</label>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <input id="homeQPropertySaleCount" type="number" min="0" value="0" class="w-20 p-2 border border-blue-100 rounded-lg bg-white" />
+              <label for="homeQPropertySaleCount" class="cursor-pointer">房产出售数量</label>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-700">
+              <input id="homeQRentalCount" type="number" min="0" value="0" class="w-20 p-2 border border-blue-100 rounded-lg bg-white" />
+              <label for="homeQRentalCount" class="cursor-pointer">出租房数量</label>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <p id="homeQResult" class="text-blue-800 font-semibold">预估范围：AUD 130 – 170</p>
+          <a id="homeQFullQuote" href="contact.html#send-enquiry" class="text-sm bg-white border border-blue-200 px-3 py-2 rounded-lg hover:bg-blue-50">获取完整报价</a>
+        </div>
+        <p class="text-xs text-slate-600">Indicative only (not a formal quote).</p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Credentials -->
   <section class="py-16">
@@ -152,6 +206,80 @@
       await loadPartial("site-footer", "../partials/footer-zh.html");
       setLanguageLinks();
     }
+
+
+    const homeQuoteConfig = {
+      base: { individual: 150, partnership: 500, trust: 900, company: 800, smsf: 1000 },
+      complexity: { standard: 1.0, complex: 1.8 },
+      transactions: { under500: 0, '500_1500': 300, '1500_5000': 500, '5000_10000': 1000, over10000: 2000 }
+    };
+
+    function homeToNum(id) {
+      const v = parseInt(document.getElementById(id)?.value || '0', 10);
+      return Number.isFinite(v) && v > 0 ? v : 0;
+    }
+
+    function syncHomeAddonVisibility(entity) {
+      const wrap = document.getElementById('homeQFinancialStatementsWrap');
+      const input = document.getElementById('homeQFinancialStatements');
+      if (!wrap || !input) return;
+      const show = entity !== 'individual';
+      wrap.classList.toggle('hidden', !show);
+      if (!show) input.checked = false;
+    }
+
+    function calcHomeQuote() {
+      const entity = document.getElementById('homeQEntity')?.value || 'individual';
+      syncHomeAddonVisibility(entity);
+      const complexity = document.getElementById('homeQComplexity')?.value || 'standard';
+      const txBand = document.getElementById('homeQTx')?.value || 'under500';
+      const rentalCount = homeToNum('homeQRentalCount');
+      const propertySaleCount = homeToNum('homeQPropertySaleCount');
+      const hasGstRegistered = !!document.getElementById('homeQGstRegistered')?.checked;
+      const hasFinancialStatements = !!document.getElementById('homeQFinancialStatements')?.checked;
+
+      let subtotal = homeQuoteConfig.base[entity] || 0;
+      subtotal += homeQuoteConfig.transactions[txBand] || 0;
+      if (rentalCount > 0) subtotal += 150 + Math.max(0, rentalCount - 1) * 100;
+      if (propertySaleCount > 0) subtotal += propertySaleCount * 200;
+      if (hasGstRegistered) subtotal += 200;
+      if (hasFinancialStatements && entity !== 'individual') subtotal += 350;
+
+      const center = subtotal * (homeQuoteConfig.complexity[complexity] || 1.0);
+      const low = Math.round((center * 0.85) / 10) * 10;
+      const high = Math.round((center * 1.15) / 10) * 10;
+      const text = `预估范围：AUD ${low} – ${high}`;
+      const result = document.getElementById('homeQResult');
+      if (result) result.textContent = text;
+      syncFullQuoteLink();
+    }
+
+
+    function syncFullQuoteLink() {
+      const link = document.getElementById('homeQFullQuote');
+      if (!link) return;
+      const params = new URLSearchParams({
+        prefillQuote: '1',
+        entity: document.getElementById('homeQEntity')?.value || 'individual',
+        complexity: document.getElementById('homeQComplexity')?.value || 'standard',
+        tx: document.getElementById('homeQTx')?.value || 'under500',
+        rentalCount: String(homeToNum('homeQRentalCount')),
+        propertySaleCount: String(homeToNum('homeQPropertySaleCount')),
+        gst: document.getElementById('homeQGstRegistered')?.checked ? '1' : '0',
+        fs: document.getElementById('homeQFinancialStatements')?.checked ? '1' : '0'
+      });
+      link.href = `contact.html?${params.toString()}#send-enquiry`;
+    }
+
+    ['homeQEntity','homeQComplexity','homeQTx','homeQGstRegistered','homeQFinancialStatements','homeQPropertySaleCount','homeQRentalCount'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const evt = el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input';
+      el.addEventListener(evt, calcHomeQuote);
+    });
+
+    calcHomeQuote();
+    syncFullQuoteLink();
 
     initLayout();
   </script>
