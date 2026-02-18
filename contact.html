@@ -13,9 +13,7 @@
 
   <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 text-center">
-      <h1 class="text-4xl font-bold mb-3">Contact Flexpath Tax</h1>
-      <p class="text-blue-100 text-lg mb-4">Tell us what you need, and we’ll come back with clear next steps.</p>
-      <p class="inline-block bg-white text-blue-700 font-semibold px-4 py-2 rounded-lg">Free 30-minute initial consultation</p>
+      <h1 class="text-4xl font-bold">Contact Flexpath Tax</h1>
     </div>
   </section>
 
@@ -67,27 +65,30 @@
                 <option value="over10000">10,000+</option>
               </select>
             </div>
-            <div>
-              <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">Rental Properties</label>
-              <input id="qRentalCount" type="number" min="0" value="0" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white" />
-            </div>
-            <div id="qTrustWrap" class="hidden">
-              <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">Trust Distributions (count)</label>
-              <input id="qTrustDistributions" type="number" min="0" value="0" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white" />
-            </div>
-            <div id="qDividendWrap" class="hidden">
-              <label class="block mb-1 text-sm font-medium min-h-[2.5rem] leading-tight">Dividend Issues × Shareholders</label>
-              <input id="qDividendUnits" type="number" min="0" value="0" class="w-full p-2.5 border border-blue-100 rounded-lg bg-white" />
+            <div class="sm:col-span-2 lg:col-span-3 space-y-3">
+              <div class="flex items-center gap-2 text-sm text-slate-700">
+                <input id="qGstRegistered" type="checkbox" class="w-[18px] h-[18px] rounded border-blue-200 cursor-pointer" />
+                <label for="qGstRegistered" class="cursor-pointer">GST registered</label>
+              </div>
+              <div id="qFinancialStatementsWrap">
+                <div class="flex items-center gap-2 text-sm text-slate-700">
+                  <input id="qFinancialStatements" type="checkbox" class="w-[18px] h-[18px] rounded border-blue-200 cursor-pointer" />
+                  <label for="qFinancialStatements" class="cursor-pointer">Need financial statements</label>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-700">
+                <input id="qPropertySaleCount" type="number" min="0" value="0" class="w-20 p-2 border border-blue-100 rounded-lg bg-white" />
+                <label for="qPropertySaleCount" class="cursor-pointer">Property sales (count)</label>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-slate-700">
+                <input id="qRentalCount" type="number" min="0" value="0" class="w-20 p-2 border border-blue-100 rounded-lg bg-white" />
+                <label for="qRentalCount" class="cursor-pointer">Rental properties (count)</label>
+              </div>
             </div>
           </div>
 
-          <label class="flex items-center gap-2 text-sm text-slate-700">
-            <input id="qPropertySale" type="checkbox" class="rounded border-blue-200" />
-            Include property sale (CGT event)
-          </label>
-
           <div class="flex items-center justify-between gap-4 flex-wrap">
-            <p id="qResult" class="text-blue-800 font-semibold">Estimated range: AUD 130 – 180</p>
+            <p id="qResult" class="text-blue-800 font-semibold">Estimated range: AUD 130 – 170</p>
             <button type="button" id="qUse" class="text-sm bg-white border border-blue-200 px-3 py-2 rounded-lg hover:bg-blue-50">Use this in message</button>
           </div>
           <p class="text-xs text-slate-600">Indicative only (not a formal quote).</p>
@@ -142,8 +143,8 @@
       base: {
         individual: 150,
         partnership: 500,
-        trust: 800,
-        company: 600,
+        trust: 900,
+        company: 800,
         smsf: 1000
       },
       complexity: { standard: 1.0, complex: 1.8 },
@@ -161,56 +162,36 @@
       return Number.isFinite(v) && v > 0 ? v : 0;
     }
 
-    function syncConditionalFields(entity) {
-      const trustWrap = document.getElementById('qTrustWrap');
-      const dividendWrap = document.getElementById('qDividendWrap');
-      const trustInput = document.getElementById('qTrustDistributions');
-      const dividendInput = document.getElementById('qDividendUnits');
-
-      const showTrust = entity === 'trust';
-      const showDividend = entity !== 'individual';
-
-      trustWrap?.classList.toggle('hidden', !showTrust);
-      dividendWrap?.classList.toggle('hidden', !showDividend);
-
-      if (!showTrust && trustInput) trustInput.value = '0';
-      if (!showDividend && dividendInput) dividendInput.value = '0';
+    function syncAddonVisibility(entity) {
+      const wrap = document.getElementById('qFinancialStatementsWrap');
+      const input = document.getElementById('qFinancialStatements');
+      if (!wrap || !input) return;
+      const show = entity !== 'individual';
+      wrap.classList.toggle('hidden', !show);
+      if (!show) input.checked = false;
     }
 
     function calcQuote() {
       const entity = document.getElementById('qEntity')?.value || 'individual';
-      syncConditionalFields(entity);
-
+      syncAddonVisibility(entity);
       const complexity = document.getElementById('qComplexity')?.value || 'standard';
       const txBand = document.getElementById('qTx')?.value || 'under500';
       const rentalCount = toNum('qRentalCount');
-      const trustDistributions = toNum('qTrustDistributions');
-      const dividendUnits = toNum('qDividendUnits');
-      const hasPropertySale = !!document.getElementById('qPropertySale')?.checked;
+      const hasGstRegistered = !!document.getElementById('qGstRegistered')?.checked;
+      const hasFinancialStatements = !!document.getElementById('qFinancialStatements')?.checked;
+      const propertySaleCount = toNum('qPropertySaleCount');
 
       let subtotal = quoteConfig.base[entity] || 0;
 
-      // Financial statement preparation: all entities except individuals
-      if (entity !== 'individual') subtotal += 350;
-
       // Business transactions add-on
       subtotal += quoteConfig.transactions[txBand] || 0;
-
-      // Rental properties (no negative adjustments)
-      if (rentalCount > 0) {
-        const firstRental = entity === 'individual' ? 150 : 200;
-        const additionalRental = entity === 'individual' ? 100 : 150;
-        subtotal += firstRental + Math.max(0, rentalCount - 1) * additionalRental;
-      }
-
-      // Trust distributions: +$50 per distribution per beneficiary (captured as count units)
-      if (entity === 'trust' && trustDistributions > 0) subtotal += trustDistributions * 50;
-
-      // Company dividends: +$50 per issue per shareholder (captured as units)
-      if (entity === 'company' && dividendUnits > 0) subtotal += dividendUnits * 50;
+      // Simple add-ons
+      if (rentalCount > 0) subtotal += 150 + Math.max(0, rentalCount - 1) * 100;
+      if (hasGstRegistered) subtotal += 200;
+      if (hasFinancialStatements && entity !== 'individual') subtotal += 350;
 
       // Property sale CGT add-on
-      if (hasPropertySale) subtotal += entity === 'individual' ? 200 : 300;
+      if (propertySaleCount > 0) subtotal += propertySaleCount * 200;
 
       const center = subtotal * (quoteConfig.complexity[complexity] || 1.0);
       const low = Math.round((center * 0.85) / 10) * 10;
@@ -220,7 +201,7 @@
       return { text, center };
     }
 
-    ['qEntity','qComplexity','qTx','qRentalCount','qTrustDistributions','qDividendUnits','qPropertySale'].forEach(id => {
+    ['qEntity','qComplexity','qTx','qRentalCount','qGstRegistered','qFinancialStatements','qPropertySaleCount'].forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
       const evt = el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input';
@@ -234,12 +215,16 @@
       const complexityText = document.getElementById('qComplexity')?.selectedOptions?.[0]?.text || '';
       const txText = document.getElementById('qTx')?.selectedOptions?.[0]?.text || '';
       const rentalCount = toNum('qRentalCount');
-      const trustDistributions = toNum('qTrustDistributions');
-      const dividendUnits = toNum('qDividendUnits');
-      const hasPropertySale = !!document.getElementById('qPropertySale')?.checked;
+      const hasGstRegistered = !!document.getElementById('qGstRegistered')?.checked;
+      const hasFinancialStatements = !!document.getElementById('qFinancialStatements')?.checked;
+      const propertySaleCount = toNum('qPropertySaleCount');
 
-      const line = `\n\n[Quick quote estimate]\nEntity type: ${entityText}\nComplexity: ${complexityText}\nTransactions: ${txText}\nRental properties: ${rentalCount}\nTrust distribution units: ${trustDistributions}\nDividend units: ${dividendUnits}\nProperty sale: ${hasPropertySale ? 'Yes' : 'No'}\n${text}`;
-      if (msg && !msg.value.includes('[Quick quote estimate]')) msg.value += line;
+      const line = `[Quick quote estimate]\nEntity type: ${entityText}\nComplexity: ${complexityText}\nTransactions: ${txText}\nRental properties: ${rentalCount}\nGST registered: ${hasGstRegistered ? 'Yes' : 'No'}\nNeed financial statements: ${hasFinancialStatements ? 'Yes' : 'No'}\nProperty sales: ${propertySaleCount}\n${text}`;
+
+      if (msg) {
+        const cleaned = msg.value.replace(/\n*\[Quick quote estimate\][\s\S]*$/m, '').trimEnd();
+        msg.value = `${cleaned}${cleaned ? '\n\n' : ''}${line}`;
+      }
       msg?.focus();
     });
 
