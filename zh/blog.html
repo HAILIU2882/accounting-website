@@ -43,11 +43,11 @@
   <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4 z-50">
     <div class="bg-white max-w-3xl w-full max-h-[85vh] rounded-lg shadow-xl overflow-hidden">
       <div class="flex justify-between items-center px-5 py-4 border-b">
-        <h2 id="modalTitle" class="text-lg font-semibold"></h2>
+        <h2 id="modalTitle" class="text-2xl md:text-3xl font-extrabold leading-tight text-blue-700"></h2>
         <button id="modalClose" class="text-gray-500 hover:text-gray-800 text-xl">×</button>
       </div>
-      <div id="modalMeta" class="px-5 pt-3 text-sm text-gray-500"></div>
-      <article id="modalBody" class="px-5 pb-6 pt-3 overflow-y-auto max-h-[65vh] whitespace-pre-wrap leading-7 text-[15px]"></article>
+      <div id="modalMeta" class="px-5 pt-2 text-sm text-blue-700 font-medium"></div>
+      <article id="modalBody" class="px-5 pb-4 pt-2 overflow-y-auto max-h-[65vh] text-[14px] leading-5"></article>
     </div>
   </div>
 
@@ -81,6 +81,62 @@
 
     initLayout();
 
+
+
+    function compactArticleText(text) {
+      return String(text || '')
+        .replace(/\r\n/g, '\n')
+        .replace(/\n[\t ]*\n[\t ]*\n+/g, '\n\n')
+        .trim();
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function renderArticleHTML(rawText) {
+      const text = compactArticleText(rawText);
+      const blocks = text.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+      const html = [];
+
+      blocks.forEach(block => {
+        const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+        if (!lines.length) return;
+
+        if (lines.every(l => /^[-•]\s+/.test(l))) {
+          html.push(`<ul class="list-disc pl-5 my-2 space-y-0.5 marker:text-blue-500 marker:text-base">${lines.map(l => `<li class="pl-1">${escapeHtml(l.replace(/^[-•]\s+/, ''))}</li>`).join('')}</ul>`);
+          return;
+        }
+
+        if (lines.length === 1) {
+          const line = lines[0];
+          if (/^[A-Z\u4e00-\u9fff][A-Za-z0-9\u4e00-\u9fff\s&()\-—:：?,，]{3,}$/.test(line) || /[：:]$/.test(line) || /[？?]$/.test(line)) {
+            html.push(`<h3 class="text-[30px] font-extrabold text-blue-700 mt-5 mb-2 border-l-4 border-blue-500 pl-3">${escapeHtml(line)}</h3>`);
+            return;
+          }
+        }
+
+        const parts = [];
+        lines.forEach((line, idx) => {
+          if (/^[-•]\s+/.test(line)) {
+            parts.push(`<ul class="list-disc pl-5 my-1 marker:text-blue-500 marker:text-base"><li class="pl-1">${escapeHtml(line.replace(/^[-•]\s+/, ''))}</li></ul>`);
+          } else if (idx === 0 && lines.length > 1 && line.length <= 70 && /[：:]$/.test(line)) {
+            parts.push(`<h4 class="text-xl font-extrabold text-blue-600 mt-4 mb-1 border-l-3 border-blue-300 pl-3">${escapeHtml(line)}</h4>`);
+          } else {
+            parts.push(`<p class="my-1 leading-5">${escapeHtml(line)}</p>`);
+          }
+        });
+        html.push(parts.join(''));
+      });
+
+      return `<div class="max-w-[700px] mx-auto">${html.join('')}</div>`;
+    }
+
     const postsEl = document.getElementById('posts');
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modalTitle');
@@ -106,7 +162,7 @@
             const p = posts[Number(btn.dataset.i)];
             modalTitle.textContent = p.title_zh || p.title;
             modalMeta.textContent = `${p.author} · ${p.date} · ${p.readTime || ''} 分钟`; 
-            modalBody.textContent = p.content_text_zh || p.content_text || '';
+            modalBody.innerHTML = renderArticleHTML(p.content_text_zh || p.content_text || '');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
           });
