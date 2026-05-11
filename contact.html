@@ -108,6 +108,7 @@
             <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Send Enquiry</button>
             <button type="button" id="openBookingModal" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold border border-blue-200 hover:bg-blue-50">Book Appointment</button>
           </div>
+          <p class="text-xs text-slate-500">Please ensure the booking email matches your preferred contact email above.</p>
         </form>
 
         <div id="bookingModal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
@@ -167,7 +168,7 @@
       const fullName = document.querySelector('input[name="name"]')?.value?.trim() || '';
       const email = document.querySelector('input[name="email"]')?.value?.trim() || '';
       const phone = document.querySelector('input[name="phone"]')?.value?.trim() || '';
-      return `[Client details]\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\n\n[Quick quote estimate]\nEntity type: ${entityText}\nComplexity: ${complexityText}\nTransactions: ${txText}\nRental properties: ${rentalCount}\nGST registered: ${hasGstRegistered ? 'Yes' : 'No'}\nNeed financial statements: ${hasFinancialStatements ? 'Yes' : 'No'}\nProperty sales: ${propertySaleCount}\n${text}`;
+      return `[Client details]\nPreferred contact name: ${fullName}\nPreferred contact email: ${email}\nPhone: ${phone}\n\n[Booking identity]\nIf the booking account email differs from preferred contact email above, please keep both on file and include both in confirmation to Flexpath Tax.\n\n[Quick quote estimate]\nEntity type: ${entityText}\nComplexity: ${complexityText}\nTransactions: ${txText}\nRental properties: ${rentalCount}\nGST registered: ${hasGstRegistered ? 'Yes' : 'No'}\nNeed financial statements: ${hasFinancialStatements ? 'Yes' : 'No'}\nProperty sales: ${propertySaleCount}\n${text}`;
     }
 
     function initBookingModal() {
@@ -182,8 +183,14 @@
         const form = document.querySelector('form[name="enquiry"]');
         if (form && !form.reportValidity()) return;
 
+        const preferredName = document.querySelector('input[name="name"]')?.value?.trim() || '';
+        const preferredEmail = document.querySelector('input[name="email"]')?.value?.trim() || '';
+
         const url = new URL('https://cal.com/flexpath/30min');
         url.searchParams.set('embed', 'true');
+        // Prefill attendee identity with user-entered contact details
+        if (preferredName) url.searchParams.set('name', preferredName);
+        if (preferredEmail) url.searchParams.set('email', preferredEmail);
         url.searchParams.set('notes', buildBookingNote());
         iframe.src = url.toString();
         modal.classList.remove('hidden');
