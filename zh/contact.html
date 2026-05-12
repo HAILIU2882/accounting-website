@@ -4,6 +4,12 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18157853878"></script>
   <script>
+    function trackEvent(eventName, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params);
+      }
+    }
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
@@ -195,6 +201,12 @@
         const form = document.querySelector('form[name="enquiry-zh"]');
         if (form && !form.reportValidity()) return;
 
+        trackEvent('book_appointment_click', {
+          event_category: 'engagement',
+          event_label: 'contact_book_appointment_zh',
+          page_path: window.location.pathname
+        });
+
         const preferredName = document.querySelector('input[name="name"]')?.value?.trim() || '';
         const preferredEmail = document.querySelector('input[name="email"]')?.value?.trim() || '';
 
@@ -233,6 +245,12 @@
       if (!form || !msg) return;
 
       form.addEventListener('submit', () => {
+        trackEvent('enquiry_submit', {
+          event_category: 'lead',
+          event_label: 'contact_enquiry_submit_zh',
+          page_path: window.location.pathname
+        });
+
         const ccLine = '内部抄送邮箱: linjingjia@gmail.com';
         if (!msg.value.includes(ccLine)) {
           msg.value = `${msg.value.trim()}\n\n${ccLine}`.trim();
