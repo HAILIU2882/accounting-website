@@ -1,3 +1,19 @@
+# Canonical clean URL redirects
+/index.html   /       301!
+/about.html   /about   301!
+/services.html   /services   301!
+/experience.html   /experience   301!
+/blog.html   /blog   301!
+/contact.html   /contact   301!
+/terms.html   /terms   301!
+/zh/index.html   /zh/   301!
+/zh/about.html   /zh/about   301!
+/zh/services.html   /zh/services   301!
+/zh/experience.html   /zh/experience   301!
+/zh/blog.html   /zh/blog   301!
+/zh/contact.html   /zh/contact   301!
+/zh/terms.html   /zh/terms   301!
+
 /contact      /contact.html      200
 /about        /about.html        200
 /services     /services.html     200

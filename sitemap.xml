@@ -2,85 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://flexpath.com.au/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/services.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/services</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/about</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/experience.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/experience</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/blog.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/blog</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/contact.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/contact</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/terms.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/terms</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://flexpath.com.au/zh/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/services.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/services</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/about</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/experience.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/experience</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/blog.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/blog</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/contact.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/contact</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flexpath.com.au/zh/terms.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://flexpath.com.au/zh/terms</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
