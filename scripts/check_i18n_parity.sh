@@ -67,6 +67,13 @@ if [[ -n "$noncanonical_links" ]]; then
   failures=$((failures+1))
 fi
 
+generated_noncanonical_links="$(grep -R -n -E --include='*.html' "(const file.*index\.html|link\.href.*\.html|const target.*\.html)" "$ROOT" || true)"
+if [[ -n "$generated_noncanonical_links" ]]; then
+  echo "Runtime code generates non-canonical .html links:"
+  echo "$generated_noncanonical_links"
+  failures=$((failures+1))
+fi
+
 if grep -q '\.html</loc>' "$ROOT/sitemap.xml"; then
   echo "Sitemap contains non-canonical .html URLs."
   failures=$((failures+1))

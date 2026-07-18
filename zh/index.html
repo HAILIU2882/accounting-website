@@ -298,15 +298,13 @@
 
     function setLanguageLinks() {
       const path = window.location.pathname;
-      const file = path.split('/').pop() || 'index.html';
-      const isZh = path.includes('/zh/');
-      const target = isZh ? `../${file}` : `zh/${file}`;
+      const isZh = path === '/zh' || path.startsWith('/zh/');
+      const pagePath = (isZh ? path.slice(3) : path)
+        .replace(/\/index\.html$/, '/')
+        .replace(/\.html$/, '');
+      const target = isZh ? (pagePath || '/') : `/zh${pagePath || '/'}`;
       document.querySelectorAll('.lang-switch').forEach(a => {
         a.setAttribute('href', target);
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.location.href = target;
-        });
       });
     }
 
@@ -377,7 +375,7 @@
         gst: document.getElementById('homeQGstRegistered')?.checked ? '1' : '0',
         fs: document.getElementById('homeQFinancialStatements')?.checked ? '1' : '0'
       });
-      link.href = `contact.html?${params.toString()}#send-enquiry`;
+      link.href = `/zh/contact?${params.toString()}#send-enquiry`;
     }
 
     ['homeQEntity','homeQComplexity','homeQTx','homeQGstRegistered','homeQFinancialStatements','homeQPropertySaleCount','homeQRentalCount'].forEach(id => {
