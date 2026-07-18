@@ -4,11 +4,11 @@ Flexpath Tax is an Australian tax accounting and advisory practice serving indiv
 
 ## Core Pages
 - Home: https://flexpath.com.au/
-- Services: https://flexpath.com.au/services.html
-- About: https://flexpath.com.au/about.html
-- Experience: https://flexpath.com.au/experience.html
-- Blog: https://flexpath.com.au/blog.html
-- Contact: https://flexpath.com.au/contact.html
+- Services: https://flexpath.com.au/services
+- About: https://flexpath.com.au/about
+- Experience: https://flexpath.com.au/experience
+- Blog: https://flexpath.com.au/blog
+- Contact: https://flexpath.com.au/contact
 - Chinese home: https://flexpath.com.au/zh/
 
 ## Services

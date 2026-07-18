@@ -59,6 +59,30 @@ echo "== Checking homepage metadata parity (OG/Twitter markers) =="
 check_contains_both "og:title" "index.html" "zh/index.html" "og:title"
 check_contains_both "twitter:card" "index.html" "zh/index.html" "twitter:card"
 
+echo "== Checking canonical crawl paths =="
+noncanonical_links="$(grep -R -n -E --include='*.html' 'href="[^"]*\.html([#?][^"]*)?"' "$ROOT" || true)"
+if [[ -n "$noncanonical_links" ]]; then
+  echo "Non-canonical .html links found:"
+  echo "$noncanonical_links"
+  failures=$((failures+1))
+fi
+
+if grep -q '\.html</loc>' "$ROOT/sitemap.xml"; then
+  echo "Sitemap contains non-canonical .html URLs."
+  failures=$((failures+1))
+fi
+
+for redirect in \
+  'http://flexpath.com.au/*   https://flexpath.com.au/:splat   301!' \
+  '/index.html   /       301!' \
+  '/zh/index.html   /zh/   301!'
+do
+  if ! grep -Fq "$redirect" "$ROOT/_redirects"; then
+    echo "Missing canonical redirect: $redirect"
+    failures=$((failures+1))
+  fi
+done
+
 if [[ "$failures" -gt 0 ]]; then
   echo ""
   echo "❌ Parity check failed with $failures issue(s)."
