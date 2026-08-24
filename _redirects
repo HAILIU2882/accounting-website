@@ -23,3 +23,12 @@ https://www.flexpath.com.au/*   https://flexpath.com.au/:splat   301!
 /about        /about.html        200
 /services     /services.html     200
 /experience   /experience.html   200
+/blog         /blog.html         200
+/terms        /terms.html        200
+/zh/          /zh/index.html     200
+/zh/about     /zh/about.html     200
+/zh/services  /zh/services.html  200
+/zh/experience /zh/experience.html 200
+/zh/blog      /zh/blog.html      200
+/zh/contact   /zh/contact.html   200
+/zh/terms     /zh/terms.html     200

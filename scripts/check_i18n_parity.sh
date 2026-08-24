@@ -90,6 +90,33 @@ do
   fi
 done
 
+echo "== Checking explicit clean URL rewrites =="
+for rewrite in \
+  '/about        /about.html        200' \
+  '/blog         /blog.html         200' \
+  '/terms        /terms.html        200' \
+  '/zh/about     /zh/about.html     200' \
+  '/zh/blog      /zh/blog.html      200' \
+  '/zh/terms     /zh/terms.html     200'
+do
+  if ! grep -Fq "$rewrite" "$ROOT/_redirects"; then
+    echo "Missing explicit clean URL rewrite: $rewrite"
+    failures=$((failures+1))
+  fi
+done
+
+echo "== Checking crawlable homepage navigation =="
+for path in about services experience blog contact terms; do
+  if ! grep -Fq "href=\"/$path\"" "$ROOT/index.html"; then
+    echo "Missing homepage link: /$path"
+    failures=$((failures+1))
+  fi
+  if ! grep -Fq "href=\"/zh/$path\"" "$ROOT/zh/index.html"; then
+    echo "Missing Chinese homepage link: /zh/$path"
+    failures=$((failures+1))
+  fi
+done
+
 if [[ "$failures" -gt 0 ]]; then
   echo ""
   echo "❌ Parity check failed with $failures issue(s)."
