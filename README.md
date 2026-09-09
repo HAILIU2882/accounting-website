@@ -43,3 +43,19 @@ accounting-website/
 │   ├── logo.png        # Logo + favicon
 │   └── images/         # Optional images
 └── README.md
+```
+
+## Visual design and motion
+
+The shared visual system lives in `assets/css/design.css`; progressive motion and navigation behavior live in `assets/js/design.js`. Homepages use an inline SVG illustration, system fonts, and native browser animations. No animation framework or build step is required.
+
+Both languages include the same hero, services, estimate and process layouts. Motion respects `prefers-reduced-motion`, and visitors can pause it with the corner control. The choice lasts for the browser session. Quotes and enquiry submission retain their existing logic.
+
+Navigation and footers are embedded in each HTML page for immediate rendering and access without JavaScript. After editing a file in `partials/`, run:
+
+```sh
+python3 scripts/sync_layout.py
+bash scripts/check_i18n_parity.sh
+```
+
+The existing Tailwind CDN is still required for utility styles. Hosting and form handling remain unchanged.

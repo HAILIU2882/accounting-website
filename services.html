@@ -202,9 +202,16 @@
 }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/design.css" />
+  <script defer src="/assets/js/design.js"></script>
 </head>
 <body class="bg-blue-50/40 text-slate-800">
-  <div id="site-header"></div>
+  <div id="site-header"><header class="site-nav"><div class="nav-inner">
+      <a class="brand" href="/"><img src="/assets/logo.png" alt="Flexpath Tax" width="38" height="38"><span>Flexpath<span class="brand-tax">Tax & advisory</span></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/about">About</a><a href="/services">Services</a><a href="/experience">Experience</a><a href="/blog">Insights</a></nav>
+      <div class="nav-actions"><a class="lang-switch" href="/zh/" lang="zh-CN">中文</a><a class="nav-cta" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      <details class="mobile-menu"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/about">About</a><a href="/services">Services</a><a href="/experience">Experience</a><a href="/blog">Insights</a><a href="/contact">Let’s talk ↗</a></nav></details></div>
+    </div></header></div>
 
   <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 text-center">
@@ -232,13 +239,8 @@
     </div>
   </section>
 
-  <div id="site-footer"></div>
+  <div id="site-footer"><footer class="site-end"><div class="footer-inner"><div><a class="footer-brand" href="/">Flexpath Tax<span aria-hidden="true">↗</span></a><p>Clear advice. A confident way forward.</p></div><div class="footer-meta"><p>© 2026 Flexpath Tax. All rights reserved.</p><a href="/terms">Terms and conditions ↗</a></div></div></footer></div>
   <script>
-    async function loadPartial(id, file) {
-      const response = await fetch(file);
-      document.getElementById(id).innerHTML = await response.text();
-    }
-
     function setLanguageLinks() {
       const path = window.location.pathname;
       const isZh = path === '/zh' || path.startsWith('/zh/');
@@ -252,8 +254,6 @@
     }
 
     async function initLayout() {
-      await loadPartial("site-header", "partials/header.html");
-      await loadPartial("site-footer", "partials/footer.html");
       setLanguageLinks();
     }
 

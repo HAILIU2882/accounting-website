@@ -115,9 +115,16 @@
 }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/design.css" />
+  <script defer src="/assets/js/design.js"></script>
 </head>
 <body class="bg-blue-50/40 text-slate-800">
-  <div id="site-header"></div>
+  <div id="site-header"><header class="site-nav"><div class="nav-inner">
+      <a class="brand" href="/zh/"><img src="/assets/logo.png" alt="Flexpath Tax" width="38" height="38"><span>Flexpath<span class="brand-tax">Tax & advisory</span></span></a>
+      <nav class="desktop-nav" aria-label="主导航"><a href="/zh/">首页</a><a href="/zh/about">关于我们</a><a href="/zh/services">服务</a><a href="/zh/experience">专业经验</a><a href="/zh/blog">税务文章</a></nav>
+      <div class="nav-actions"><a class="lang-switch" href="/" lang="en">EN</a><a class="nav-cta" href="/zh/contact">免费咨询 <span aria-hidden="true">↗</span></a>
+      <details class="mobile-menu"><summary aria-label="打开导航"><span></span><span></span></summary><nav aria-label="手机导航"><a href="/zh/">首页</a><a href="/zh/about">关于我们</a><a href="/zh/services">服务</a><a href="/zh/experience">专业经验</a><a href="/zh/blog">税务文章</a><a href="/zh/contact">免费咨询 ↗</a></nav></details></div>
+    </div></header></div>
 
   <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
     <div class="max-w-5xl mx-auto px-4 py-14 text-center">
@@ -151,13 +158,8 @@
     </div>
   </main>
 
-  <div id="site-footer"></div>
+  <div id="site-footer"><footer class="site-end"><div class="footer-inner"><div><a class="footer-brand" href="/zh/">Flexpath Tax<span aria-hidden="true">↗</span></a><p>专业税务建议，让每一步更从容。</p></div><div class="footer-meta"><p>© 2026 Flexpath Tax. 保留所有权利。</p><a href="/zh/terms">服务条款 ↗</a></div></div></footer></div>
   <script>
-    async function loadPartial(id, file) {
-      const response = await fetch(file);
-      document.getElementById(id).innerHTML = await response.text();
-    }
-
     function setLanguageLinks() {
       const path = window.location.pathname;
       const isZh = path === '/zh' || path.startsWith('/zh/');
@@ -171,8 +173,6 @@
     }
 
     async function initLayout() {
-      await loadPartial("site-header", "../partials/header-zh.html");
-      await loadPartial("site-footer", "../partials/footer-zh.html");
       setLanguageLinks();
     }
 
