@@ -51,6 +51,8 @@ The shared visual system lives in `assets/css/design.css`; progressive motion an
 
 Both languages include the same hero, services, estimate and process layouts. Motion respects `prefers-reduced-motion`, and visitors can pause it with the corner control. The choice lasts for the browser session. Quotes and enquiry submission retain their existing logic.
 
+Navigation uses a floating, translucent pill bar with a centred Flexpath brand, a native expandable menu, a language switch and a consultation link. It stays visible on scroll and adapts to narrow screens. The menu supports Escape and outside-click dismissal; its native disclosure also works without JavaScript.
+
 Navigation and footers are embedded in each HTML page for immediate rendering and access without JavaScript. After editing a file in `partials/`, run:
 
 ```sh
@@ -59,3 +61,11 @@ bash scripts/check_i18n_parity.sh
 ```
 
 The existing Tailwind CDN is still required for utility styles. Hosting and form handling remain unchanged.
+
+## Local preview
+
+Run `python3 scripts/preview.py` from the `website` folder, then open
+`http://127.0.0.1:8765/`. This server applies the exact local redirects and
+rewrites in `_redirects`, so clean URLs such as `/contact` and `/zh/contact`
+work in preview. A plain `python3 -m http.server` does not apply those rules.
+Netlify form submissions still require the hosted site.

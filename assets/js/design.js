@@ -85,8 +85,9 @@
     const target = new URL(link.href).pathname.replace(/\/$/, '') || '/';
     if (page === target) link.setAttribute('aria-current', 'page');
   });
-  const menu = document.querySelector('.mobile-menu');
+  const menu = document.querySelector('.header-menu');
   if (menu) {
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
     document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
     menu.addEventListener('keydown', event => {
       if (event.key === 'Escape') { menu.open = false; menu.querySelector('summary').focus(); }

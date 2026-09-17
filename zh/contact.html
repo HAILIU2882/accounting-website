@@ -125,12 +125,29 @@
   <script defer src="/assets/js/design.js"></script>
 </head>
 <body class="bg-blue-50/40 text-slate-800">
-  <div id="site-header"><header class="site-nav"><div class="nav-inner">
-      <a class="brand" href="/zh/"><img src="/assets/logo.png" alt="Flexpath Tax" width="38" height="38"><span>Flexpath<span class="brand-tax">Tax & advisory</span></span></a>
-      <nav class="desktop-nav" aria-label="主导航"><a href="/zh/">首页</a><a href="/zh/about">关于我们</a><a href="/zh/services">服务</a><a href="/zh/experience">专业经验</a><a href="/zh/blog">税务文章</a></nav>
-      <div class="nav-actions"><a class="lang-switch" href="/" lang="en">EN</a><a class="nav-cta" href="/zh/contact">免费咨询 <span aria-hidden="true">↗</span></a>
-      <details class="mobile-menu"><summary aria-label="打开导航"><span></span><span></span></summary><nav aria-label="手机导航"><a href="/zh/">首页</a><a href="/zh/about">关于我们</a><a href="/zh/services">服务</a><a href="/zh/experience">专业经验</a><a href="/zh/blog">税务文章</a><a href="/zh/contact">免费咨询 ↗</a></nav></details></div>
-    </div></header></div>
+  <div id="site-header"><header class="site-nav">
+  <div class="nav-inner">
+    <details class="header-menu">
+      <summary aria-label="切换导航菜单"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span><span class="menu-label">菜单</span></summary>
+      <nav class="header-menu-panel" aria-label="主导航">
+        <p class="menu-heading">探索 Flexpath</p>
+        <div class="menu-links">
+          <a href="/zh/">首页<span aria-hidden="true">↗</span></a>
+          <a href="/zh/about">关于我们<span aria-hidden="true">↗</span></a>
+          <a href="/zh/services">服务<span aria-hidden="true">↗</span></a>
+          <a href="/zh/experience">专业经验<span aria-hidden="true">↗</span></a>
+          <a href="/zh/blog">税务文章<span aria-hidden="true">↗</span></a>
+          <a href="/zh/contact">免费咨询<span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </details>
+    <a class="brand" href="/zh/" aria-label="Flexpath Tax 首页"><img src="/assets/logo.png" alt="" width="38" height="38"><span>Flexpath<span class="brand-tax">Tax & advisory</span></span></a>
+    <div class="nav-actions">
+      <a class="lang-switch" href="/" lang="en" aria-label="Switch to English">EN</a>
+      <a class="nav-cta" href="/zh/contact"><span class="nav-cta-label">免费咨询</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header></div>
 
   <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 text-center">
